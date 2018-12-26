@@ -13,15 +13,20 @@ import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {SharedModule} from './shared/shared.module';
 import {SidebarComponent} from './sidebar/sidebar.component';
-
+import {LoggerModule} from "logger-lib";
+import {CustomLogFormatterService} from "./shared/logging/services/custom-log-formatter.service";
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
+    LoggerModule.forRoot({enableDebug: true}),
     FlightBookingModule,
-
     FlightApiModule.forRoot(),
+    LoggerModule.forRoot({
+      enableDebug: true,
+      logFormatterType: CustomLogFormatterService
+    }),
     SharedModule.forRoot(),
     RouterModule.forRoot([...APP_ROUTES], {...APP_EXTRA_OPTIONS})
   ],
