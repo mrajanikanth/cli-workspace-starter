@@ -20,9 +20,8 @@ import {SidebarComponent} from './sidebar/sidebar.component';
     BrowserModule,
     HttpClientModule,
     FlightBookingModule,
-
+    SharedModule,
     FlightApiModule.forRoot(),
-    SharedModule.forRoot(),
     RouterModule.forRoot([...APP_ROUTES], {...APP_EXTRA_OPTIONS})
   ],
   declarations: [
